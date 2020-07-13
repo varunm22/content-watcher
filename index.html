@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+    </objects>
+</document>
+
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"> </script>
+</head>
+
+
+<body>
+<h1 style="color:blue">Website Content Watcher</h1>
+
+<p> Have you ever refreshed a page several times a day to check for updates (for example, checking a for-sale page for a particular item, a news site for a particular event, or a subreddit for a specific keyword)? </p>
+
+<p> As a user of our website content watcher, you will input a URL, search term, and search frequency (every minute, every hour, every week, etc). Then, at times designated by the search frequency, the website content watcher will scrape the text at the given URL and notify you if the search term shows up! Check it out below! </p>
+
+<form id = "myform">
+<label for = "field">URL Verifier: </label>
+<input class = "left" id = "field" name = "field">
+<br/>
+<input type = "submit" value = "Validate">
+</form>
+
+<script>
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$("#myform").validate({
+  rules: {
+    field: {
+      required: true,
+      url: true
+    }
+  }
+});
+</script>
+
+<p> input a search term: </p>
+
+<input type="text" id="myInput">
+<button type="button" id="myBtn">enter</button>
+
+<p> input a search frequency: </p>
+
+<input type="text" id="myInput">
+<button type="button" id="myBtn">enter</button>
+
+</body>
+</html>
+    
+
