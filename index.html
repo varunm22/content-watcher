@@ -15,6 +15,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"> </script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"> </script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"> </script>
@@ -36,29 +37,50 @@
 </form>
 
 <script>
+    
 jQuery.validator.setDefaults({
-  debug: true,
-  success: "valid"
-});
+    debug:true,
+    success:"valid"
+    });
+
 $("#myform").validate({
-  rules: {
-    field: {
+      rules: {
+      field: {
       required: true,
       url: true
     }
   }
 });
+
+$.post("ajax/test.html", function(data){
+    $(".result").html(data);
+    });
+
+$.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: success,
+    dataType: dataType
+});
+
 </script>
+
+<p> input your email: </p>
+
+<input type="text" id="myInput">
 
 <p> input a search term: </p>
 
 <input type="text" id="myInput">
-<button type="button" id="myBtn">enter</button>
 
 <p> input a search frequency: </p>
 
+<div class="dropdown">
 <input type="text" id="myInput">
-<button type="button" id="myBtn">enter</button>
+<br/>
+<br/>
+<button type="button" id="myBtn">Submit</button>
 
 </body>
 </html>
