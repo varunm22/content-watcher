@@ -7,7 +7,5 @@ you're searching for!
 
 Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together.
 
-<font color="red">
 In order to run this content watch, you can download this project yourself and run it on your terminal!
 Please have python and it's packages for Flask, BeautifulSoup, and Requests also installed in order for the program to properly run.
-</font>
