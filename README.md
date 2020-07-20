@@ -9,4 +9,4 @@ Our content-water runs on 4 main components (scraper, scheduler, query entry & n
 
 # Installation Process
 In order to run this content watch, you can download this project yourself and run it on your terminal!
-Please have python and it's packages for Flask, BeautifulSoup, and Requests also installed in order for the program to properly run.
+Please have python install and use pip to install packages for Flask, BeautifulSoup, and Requests also installed in order for the program to properly run.
