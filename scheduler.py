@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 @app.route('/') #end of basic Flask stuff
 
+#Varun stuff
+
 counter = 1
 
 def reload():
@@ -21,6 +23,8 @@ if #go to website:
 if #refresh:
     counter = counter * -1
 
+#end of Varun stuff    
+    
 if __name__ == "__main__":
     app.run(debug=True)
 
