@@ -8,21 +8,34 @@ app = Flask(__name__)
 
 @app.route('/') #end of basic Flask stuff
 
+counter = 1
 
+def reload():
+    counter += 1
 
+schedule.every(5)seconds.do(reload)
+
+if #go to website:
+    return str(counter)
+
+if #refresh:
+    counter = counter * -1
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
 #old stuff basically loops through everything from 0 to states seconds
-def scraper():
-    return render_Backend('scraper.py') #calls scraper
+#def scraper():
+ #   return render_Backend('scraper.py') #calls scraper
 
-def index():
-    return render_template('index.html') #setiing up the html
+#def index():
+ #   return render_template('index.html') #setiing up the html
 
-def reload():
-    webbrowser.open_new_tab(url)
+#def reload():
+ #   webbrowser.open_new_tab(url)
 
-schedule.every(a)seconds.do(reload)#function
+#schedule.every(a)seconds.do(reload)#function
 
 
 
