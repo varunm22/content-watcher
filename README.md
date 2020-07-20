@@ -6,4 +6,3 @@ will be able to enter a URL, a specific search term/topic, and choose a time fre
 you're searching for!
 
 Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together.
->>>>>>> master
