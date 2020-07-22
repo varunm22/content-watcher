@@ -10,6 +10,12 @@ app = Flask(__name__)
 
 counter = 1
 
+seconds = 0
+
+minutes = 0
+
+hours = 0
+
 def reload():
     counter += 1
     
