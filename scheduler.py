@@ -8,14 +8,20 @@ app = Flask(__name__)
 
 @app.route('/') #end of basic Flask stuff
 
-#Varun stuff
-
 counter = 1
 
 def reload():
     counter += 1
+    
+def minute():
+    if #user puts minutes:
+        seconds = minutes * 60
 
-schedule.every(5)seconds.do(reload)
+def hour():
+    if #user puts hour:
+        seconds = hours * 3600
+
+schedule.every(seconds)seconds.do(reload)
 
 if #go to website:
     return str(counter)
@@ -23,8 +29,6 @@ if #go to website:
 if #refresh:
     counter = counter * -1
 
-#end of Varun stuff    
-    
 if __name__ == "__main__":
     app.run(debug=True)
 
