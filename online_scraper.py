@@ -1,3 +1,5 @@
+#this code currently connects the scraper with the frontend query entry
+
 from flask import Flask, redirect, url_for, render_template, request, session
 from urllib.request import urlopen # lets us request a url
 from urllib.error import HTTPError
