@@ -19,22 +19,28 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"> </script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"> </script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"> </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </head>
-
-
 <body>
-<h1 style="color:blue">Website Content Watcher</h1>
+    
+    
+<div class="jumbotron text-center">
+    <h1>Website Content Watcher</h1>
+    <p> Nikhil Prasad, Anjelica Solomon, Victor Kuang, Sanjana Dutt</p>
+    </div>
 
-<p> Have you ever refreshed a page several times a day to check for updates (for example, checking a for-sale page for a particular item, a news site for a particular event, or a subreddit for a specific keyword)? </p>
+<div class="centered-container">
+<div class="centered-elements">
+    
+<p style="margin-left:10%; margin-right:10%;">  Have you ever refreshed a page several times a day to check for updates (for example, checking a for-sale page for a particular item, a news site for a particular event, or a subreddit for a specific keyword)? </p>
 
-<p> As a user of our website content watcher, you will input a URL, search term, and search frequency (every minute, every hour, every week, etc). Then, at times designated by the search frequency, the website content watcher will scrape the text at the given URL and notify you if the search term shows up! Check it out below! </p>
-
-<form id = "myform">
-<label for = "field">URL Verifier: </label>
-<input class = "left" id = "field" name = "field">
-<br/>
-<input type = "submit" value = "Validate">
-</form>
+<p style="margin-left:10%; margin-right:10%;"> As a user of our website content watcher, you will input a URL, search term, and search frequency (every minute, every hour, every week, etc). Then, at times designated by the search frequency, the website content watcher will scrape the text at the given URL and notify you if the search term shows up! Check it out below! </p>
 
 <script>
     
@@ -67,22 +73,31 @@ $.ajax({
 </script>
 <form method="POST">
 
-<p> input a website: </p>
-<input type = "left" name = "website">
+<center> <b> Website Address: </b> </center>
+<center> <input type = "left" name = "website"> </center>
+<br>
 
-<p> input your email: </p>
-<input type="text" name="email">
+<center> <b> E-Mail: </b> </center>
+<center> <input type="text" name="email"> </center>
+<br>
 
-<p> input a search term: </p>
-<input type="text" name="topic">
+<center> <b> Search Term: </b> </center>
+<center> <input type="text" name="topic"> </center>
+<br>
 
-<p> input a search frequency: </p>
-
+<center> <b> Search Frequency: </b> </center>
 <div class="dropdown">
-<input type="text" id="myInput">
-<br/>
+<center> <select name="example"> </center> <br>
+<center> <option selected="selected" value="one">Every Minute</option></center>
+<center> <option value="two">Every Hour </option> </center>
+<center> <option value="three">Every Day </option> </center>
+<center> <option value="three">Every Week </option> </center>
+</select>
+<br>
+<br>
 
-<p><input type="submit" value="Submit"/></p>
+<center> <b> <input type="submit" value="Submit"/> </b> </center>
+<br>
 </form>
 
 </body>
