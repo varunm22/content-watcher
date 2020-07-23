@@ -1,4 +1,4 @@
-#this code currently connects the scraper with the frontend query entry
+#this code currently connects the scraper with the frontend query entry so the two work together taking entries and sending them to the scraper code
 
 from flask import Flask, redirect, url_for, render_template, request, session
 from urllib.request import urlopen # lets us request a url
