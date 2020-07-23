@@ -1,4 +1,6 @@
-#this runs on your local webserver
+#this is a separate webserver for the scraper that works independently of itself, 
+#only a welcome page will occur when ran, but HTTP post requests can be run with cURL
+
 from flask import Flask, request #import main Flask class and request object
 from urllib.request import urlopen # lets us request a url
 from urllib.error import HTTPError
@@ -31,7 +33,7 @@ def form_example():
 
         return answer
         
-    #welcome page
+    #welcome page that appears
     return "Welcome!"
 
 if __name__ == '__main__':
