@@ -6,3 +6,7 @@ will be able to enter a URL, a specific search term/topic, and choose a time fre
 you're searching for!
 
 Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together.
+
+# Installation Process
+In order to run this content watch, you can download this project yourself and run it on your terminal!
+Please have python install and use pip to install packages for Flask, BeautifulSoup, and Requests also installed in order for the program to properly run.
