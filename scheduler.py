@@ -10,32 +10,27 @@ from app import routes
 
 #basically, depending on the type of frequency the user chooses, it will go into a certain type of route
 
-front_end = {'query_id' : #the query that was put in
-              'frequency' : #the frequency that was put in}
+query_id = {'' : {'add' :
+                            {'create' : }
+                            'delete' : }}
 
-@app.route('/second/')
-def second():
-       seconds = front_end['frequency']
+@app.route('/add_query' methods = ['GET,'POST'])
+def add_query():
+      website = request.form.get('website')
+      frequency = request.form.get('frequency')
+      topic = request.form.get('topic')
+
+schedule.every(frequency)seconds.do(add_query)
+
+@app.route('/delete_query')
+def delete_query():
 
 
 
-@app.route('/minute/')
-def minute():
-       minutes = front_end['frequency']
-       seconds = minutes * 60 #converts to seconds
+@app.route('/show_all')
+def show_all():
 
 
-@app.route('/hour/')
-def hour():
-       hours = front_end['frequency']
-       seconds = hours * 3600 #converts to seconds
-
-@app.route('/week/')
-def week():
-       weeks = front_end['frequency']
-       seconds = weeks * 604800 #converts to seconds
-
-schedule.every(seconds)seconds.do(reload)
 
 if __name__ == "__main__":
     app.run(debug=True)
