@@ -10,25 +10,29 @@ from app import routes
 
 #basically, depending on the type of frequency the user chooses, it will go into a certain type of route
 
+front_end = {'query_id' :
+              'frequency' : }
+
 @app.route('/second/')
 def second():
-       minutes = #sortby minutes; not sure how to write it so minutes is equal to the number the user inputs; similar thing to stuff below
-       seconds = minutes * 60 #converts to seconds
+       seconds = front_end['frequency']
+
+
 
 @app.route('/minute/')
 def minute():
-       minutes = 
+       minutes = front_end['frequency']
        seconds = minutes * 60 #converts to seconds
 
 
 @app.route('/hour/')
 def hour():
-       hours = 
+       hours = front_end['frequency']
        seconds = hours * 3600 #converts to seconds
 
 @app.route('/week/')
 def week():
-       weeks =
+       weeks = front_end['frequency']
        seconds = weeks * 604800 #converts to seconds
 
 schedule.every(seconds)seconds.do(reload)
