@@ -8,11 +8,11 @@ from app import routes
 
 #create query
 
-#basically, depending on the type of frequency the user chooses, it will go into a certain type of route
+#query id: depending on the id (which is a number), it adds, creates, or deletes
 
-query_id = {'' : {'add' : }
-            '' : {'create' : }
-            '' : {'delete' : }}
+query_id = {'0' : {'add' : "h",}, 
+            '1' : {'create' : "j",},
+            '2' : {'delete' : "l",},}
 
 @app.route('/add_query' methods = ['GET,'POST'])
 def add_query():
