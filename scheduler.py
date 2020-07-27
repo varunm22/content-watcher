@@ -10,8 +10,8 @@ from app import routes
 
 #basically, depending on the type of frequency the user chooses, it will go into a certain type of route
 
-front_end = {'query_id' :
-              'frequency' : }
+front_end = {'query_id' : #the query that was put in
+              'frequency' : #the frequency that was put in}
 
 @app.route('/second/')
 def second():
