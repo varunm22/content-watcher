@@ -10,9 +10,9 @@ from app import routes
 
 #query id: depending on the id (which is a number), it adds, creates, or deletes
 
-query_id = {'0' : {'add' : "h",}, 
-            '1' : {'create' : "j",},
-            '2' : {'delete' : "l",},}
+#query_id = {'0' : {'add' : "h",}, 
+#            '1' : {'create' : "j",},
+#            '2' : {'delete' : "l",},}
 
 @app.route('/add_query' methods = ['GET,'POST'])
 def add_query():
@@ -22,15 +22,13 @@ def add_query():
 
 schedule.every(frequency)seconds.do(add_query)
 
-@app.route('/delete_query')
-def delete_query():
+#@app.route('/delete_query')
+#def delete_query():
 
 
 
-@app.route('/show_all')
-def show_all():
-
-
+#@app.route('/show_all')
+#def show_all():
 
 if __name__ == "__main__":
     app.run(debug=True)
