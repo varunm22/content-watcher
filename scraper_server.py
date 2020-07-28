@@ -11,8 +11,9 @@ app = Flask(__name__) #create the Flask app
 @app.route('/', methods=['GET', 'POST']) #allow both GET and POST requests
 def form_example():
     if request.method == 'POST': #this block is only entered when the form is submitted
-        website = request.args.get('website')
-        topic = request.args.get('topic')
+        json = request.get_json()
+        website = json['website']
+        topic = json['topic']
         
         #code for webscraper, takes the information that user enters through the form
         html = urllib.request.urlopen(website).read()
