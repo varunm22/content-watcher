@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"> </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron text-center">
+<h1> Query Manager </h1>
+
+<p> This table records your history of searches! </p>
+
+<script>
+
+$("#myform").validate({
+      rules: {
+      field: {
+      required: true,
+      url: true
+    }
+  }
+});
+
+$.post("ajax/test.html", function(data){
+    $(".result").html(data);
+    });
+
+$.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: success,
+    dataType: dataType
+});
+
+</script>
+
+<form method="POST">
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+
+    <table>
+      <tr>
+          <th>Website URL:</th>
+          <th># of Inputs:</th>
+          <th># of Words Searched:</th>
+      </tr>
+      <tr>
+        <td>"input"</td>
+        <td>"input"</td>
+        <td>"input"</td>
+      </tr>
+      <tr>
+        <td>"input"</td>
+        <td>"input"</td>
+        <td>"input"</td>
+      </tr>
+      <tr>
+        <td>"input"</td>
+        <td>"input"</td>
+        <td>"input"</td>
+      </tr>
+      <tr>
+        <td>"input"</td>
+        <td>"input"</td>
+        <td>"input"</td>
+      </tr>
+      <tr>
+        <td>"input"</td>
+        <td>"input"</td>
+        <td>"input"</td>
+      </tr>
+      <tr>
+        <td>"input"</td>
+        <td>"input"</td>
+        <td>"input"</td>
+      </tr>
+    </table>
+
+
+</form>
+</body>
+</html>
