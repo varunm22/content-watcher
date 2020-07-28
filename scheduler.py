@@ -1,41 +1,46 @@
-from flask import Flask
+from flask import Flask, request
 import schedule
 import time
 
 app = Flask(__name__)
 
-from app import routes
-
-#create query
-
-#basically, depending on the type of frequency the user chooses, it will go into a certain type of route
-
-front_end = {'query_id' : #the query that was put in
-              'frequency' : #the frequency that was put in}
-
-@app.route('/second/')
-def second():
-       seconds = front_end['frequency']
+def read_data(variable_name):
+    with open(variable_name + '.json', 'r') as f:
+        value = json.load(f)
+    f.close()
+    return value
 
 
+def write_data(value, variable_name):
+    with open(variable_name + '.json', 'w') as f:
+        json.dump(value, f)
+    f.close()
 
-@app.route('/minute/')
-def minute():
-       minutes = front_end['frequency']
-       seconds = minutes * 60 #converts to seconds
+@app.route('/add_query', methods=['GET','POST'])
+def add_query():
+    json = request.get_json()  
+    website = json['website']
+    frequency = json['frequency']
+    topic = json['topic']
 
+    # this is just sample code i wrote for you using the read_data and
+    # write_data functions I wrote above to store data. You'll need to
+    # use these to create your query dict and access/modify it
+    if os.path.exists("counter.json"):
+        counter = read_data()
+    else:
+        counter = 1
+    print(counter)
+    counter += 1
+    write_data(counter)
 
-@app.route('/hour/')
-def hour():
-       hours = front_end['frequency']
-       seconds = hours * 3600 #converts to seconds
+    schedule.every(frequency).seconds.do(add_query)
 
-@app.route('/week/')
-def week():
-       weeks = front_end['frequency']
-       seconds = weeks * 604800 #converts to seconds
+#@app.route('/delete_query')
+#def delete_query():
 
-schedule.every(seconds)seconds.do(reload)
+#@app.route('/show_all')
+#def show_all():
 
 if __name__ == "__main__":
     app.run(debug=True)
