@@ -14,7 +14,7 @@ from app import routes
 #            '1' : {'create' : "j",},
 #            '2' : {'delete' : "l",},}
 
-@app.route('/add_query' methods = ['GET,'POST'])
+@app.route('/add_query' methods = ['GET','POST'])
 def add_query():
       website = request.form.get('website')
       frequency = request.form.get('frequency')
