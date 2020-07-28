@@ -4,28 +4,40 @@ import time
 
 app = Flask(__name__)
 
-from app import routes
+def read_data(variable_name):
+    with open(variable_name + '.json', 'r') as f:
+        value = json.load(f)
+    f.close()
+    return value
 
-#create query
 
-#query id: depending on the id (which is a number), it adds, creates, or deletes
-
-#query_id = {'0' : {'add' : "h",}, 
-#            '1' : {'create' : "j",},
-#            '2' : {'delete' : "l",},}
+def write_data(value, variable_name):
+    with open(variable_name + '.json', 'w') as f:
+        json.dump(value, f)
+    f.close()
 
 @app.route('/add_query', methods=['GET','POST'])
 def add_query():
-      website = request.form.get('website')
-      frequency = request.form.get('frequency')
-      topic = request.form.get('topic')
+    json = request.get_json()  
+    website = json['website']
+    frequency = json['frequency']
+    topic = json['topic']
 
-schedule.every(frequency).seconds.do(add_query)
+    # this is just sample code i wrote for you using the read_data and
+    # write_data functions I wrote above to store data. You'll need to
+    # use these to create your query dict and access/modify it
+    if os.path.exists("counter.json"):
+        counter = read_data()
+    else:
+        counter = 1
+    print(counter)
+    counter += 1
+    write_data(counter)
+
+    schedule.every(frequency).seconds.do(add_query)
 
 #@app.route('/delete_query')
 #def delete_query():
-
-
 
 #@app.route('/show_all')
 #def show_all():
