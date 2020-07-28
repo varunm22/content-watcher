@@ -9,7 +9,12 @@ app.secret_key = "queryentry"
 @app.route('/', methods=['GET', 'POST']) #allow both GET and POST requests
 def form_example():
     if request.method == 'POST': #this block is only entered when the form is submitted
-        return "Success! Information entered!"  
+        website = request.args.get('website')
+        topic = request.args.get('topic')
+        url = 'http://127.0.0.1:3000/'
+        myobj = {'website': website, 'topic': topic}
+        x = requests.post(url, data = myobj)
+        return "Success! Information entered!" 
     #form shown on webserver/site that prompts user to enter information
     return render_template("index.html")
 
