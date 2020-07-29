@@ -41,8 +41,11 @@ def notifer():
                ]
           }
           '''
-          data = json.loads(queries)
-          return data
+          data = json.loads(queries_string)
+          print(data['queries'])
+          for query in data['queries']:
+               print(query)
+          return data['queries']
 
      return render_template("index2.html")
 
