@@ -5,12 +5,29 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+     <style>
+        table{
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        th:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
 </head>
-<body>
+<body style="background-color: #e9ecef;">
     <div class="jumbotron text-center">
-<h1> Query Manager </h1>
+<h1 style="font-family:arial;">Query Manager</h1>
 
-<p> This table records your history of searches! </p>
+<p style="font-family:sans-serif;">This table records your history of searches!</p>
 </head>
 <body>
   <table id="example" class="display" style="width:100%">
@@ -64,28 +81,5 @@ $.ajax({
     dataType: dataType
 });
 </script>
-
-<form method="POST">
-    <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
-    </head>
-    <body>
-
-</form>
 </body>
 </html>
