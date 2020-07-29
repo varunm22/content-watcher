@@ -49,7 +49,6 @@ def delete_query():
     frequency = json['frequency']
     topic = json['topic']
 
-#same as add but it decreases counter
     if os.path.exists("counter.json"):
         counter = delete_data() #or what the opposite od read_data() is
     else:
