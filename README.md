@@ -9,4 +9,11 @@ Our content-water runs on 4 main components (scraper, scheduler, query entry & n
 
 # Installation Process
 In order to run this content watch, you can download this project yourself and run it on your terminal!
-Please have python install and use pip to install packages for Flask, BeautifulSoup, requests, and jsonify also installed in order for the program to properly run.
+Please have Python 3 installed and use pip to install packages for Flask, BeautifulSoup, Requests, and Flask-Jsonpify also installed in order for the program to properly run.
+
+For help with installation of these packages:
+pip: https://pip.pypa.io/en/stable/installing/
+Flask: https://flask.palletsprojects.com/en/1.1.x/installation/
+BeautifulSoup: https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-beautiful-soup
+Requests: https://stackoverflow.com/questions/30362600/how-to-install-requests-module-in-python-3-4-instead-of-2-7
+Flask-Jsonpify: https://pypi.org/project/Flask-Jsonpify/
