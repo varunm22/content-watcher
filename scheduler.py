@@ -16,7 +16,6 @@ def read_data(starting_value, variable_name):
     else:
         return starting_value
 
-
 def write_data(value, variable_name):
     with open(variable_name + '.json', 'w') as f:
         json.dump(value, f)
