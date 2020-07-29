@@ -23,27 +23,27 @@ def write_data(value, variable_name):
 
 @app.route('/add_query', methods=['GET','POST'])
 def add_query():
-    json = request.get_json()  
+    json = request.get_json()
     website = json['website']
     frequency = json['frequency']
     topic = json['topic']
-    queries = {}
-    # VARUN this is just sample code i wrote for you using the read_data 
-    # and write_data functions I wrote above to store data. You'll need 
+    query = {}
+    # VARUN this is just sample code i wrote for you using the read_data
+    # and write_data functions I wrote above to store data. You'll need
     # to use these to create your query dict and access/modify it
     counter = read_data(1, "counter")
     print(counter)
     counter += 1
     write_data(counter, "counter")
-    
-    queries[counter] = {'topic' : topic, 
-                        'frequency' : frequency, 
-                        'website' : website}
-    
-    schedule.every(frequency).seconds.do(add_query)
-    return "test text"
 
-# VARUN: remember, all you want as an input for delete is a query id! this 
+    query[counter] = {'topic' : topic,
+                      'website' : website,
+                      'frequency' : frequency}
+
+    schedule.every(frequency).seconds.do(add_query)
+    return "Query added!"
+
+# VARUN: remember, all you want as an input for delete is a query id! this
 # when you're taking things out of json, all you should be taking out is
 # query id. If you don't understand what i mean, ask me!
 @app.route('/delete_query', methods=['GET', 'POST'])
@@ -52,11 +52,13 @@ def delete_query():
 #    website = json['website']
 #    frequency = json['frequency']
 #    topic = json['topic']
-#
-#    schedule.every(frequency).seconds.do(delete_query)
-    return "test text"
+    query = {}
 
-#@app.route('/show_all')
+
+    schedule.every(frequency).seconds.do(delete_query)
+    return "Query deleted!"
+
+#@app.route('/show_all', methods=['GET', 'POST'])
 #def show_all():
 
 if __name__ == "__main__":
