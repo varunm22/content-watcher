@@ -10,7 +10,36 @@ app.secret_key = "notifier"
 @app.route("/", methods=['GET', 'POST'])
 def notifer():
      if request.method == 'POST': #this block is only entered when the form is submitted
-          return "Results!"
+          json = request.get_json()
+          website = json['website']
+          topic = json['topic']
+          frequency = json['frequency']
+          results = json['results']
+     
+          #sample queries
+          queries = '''
+          {
+               "1": {
+                    "Website": "https://www.nytimes.com/",
+                    "Topic": "covid",
+                    "Frequency": "5"
+               },
+               "2": {
+                    "Website": "https://www.buzzfeed.com/",
+                    "Topic": "makeup",
+                    "Frequency": "3"
+               },
+               "3": {
+                    "Website": "https://labs.codeday.org/schedule",
+                    "Topic": "python",
+                    "Frequency": "2"
+               }
+          }
+          '''
+          data = json.loads(queries)
+          return data
+
+     return render_template("index2.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000) 
