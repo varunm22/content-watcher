@@ -33,10 +33,9 @@ def add_query():
     # and write_data functions I wrote above to store data. You'll need
     # to use these to create your query dict and access/modify it
     counter = read_data(1, "counter")
-    query[counter] = {str(counter) :
-                         {'topic' : topic,
-                         'website' : website,
-                         'frequency' : frequency},}
+    query[counter] = {'topic' : topic,
+                      'website' : website,
+                      'frequency' : frequency}
     print(counter)
     counter += 1
     write_data(counter, "counter")
