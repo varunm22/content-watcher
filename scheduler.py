@@ -36,8 +36,23 @@ def add_query():
 
     schedule.every(frequency).seconds.do(add_query)
 
-#@app.route('/delete_query')
-#def delete_query():
+@app.route('/delete_query', methods=['GET', 'POST'])
+def delete_query():
+    json = request.get_json()
+    website = json['website']
+    frequency = json['frequency']
+    topic = json['topic']
+
+#same as add but it decreases counter
+    if os.path.exists("counter.json"):
+        counter = read_data()
+    else:
+        counter = 1
+    print(counter)
+    counter -= 1
+    write_data(counter)
+
+    schedule.every(frequency).seconds.do(delete_query)
 
 #@app.route('/show_all')
 #def show_all():
