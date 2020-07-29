@@ -9,45 +9,39 @@ app.secret_key = "notifier"
 
 @app.route("/", methods=['GET', 'POST'])
 def notifer():
-     if request.method == 'POST': #this block is only entered when the form is submitted
-          json = request.get_json()
-          website = json['website']
-          topic = json['topic']
-          frequency = json['frequency']
-          results = json['results']
+     #if request.method == 'POST': #this block is only entered when the form is submitted
+          #json = request.get_json()
+          #website = json['website']
+          #topic = json['topic']
+          #frequency = json['frequency']
+          #results = json['results']
      
           #sample queries
-          queries_string = '''
-          {
-               "queries": [
-                    {
-                    "id": "1",
-                    "Website": "https://www.nytimes.com/",
-                    "Topic": "covid",
-                    "Frequency": "5"
-                    },
-                    {
-                    "id": "2",
-                    "Website": "https://www.buzzfeed.com/",
-                    "Topic": "makeup",
-                    "Frequency": "2"
-                    },
-                    {
-                    "id": "3",
-                    "Website": "https://labs.codeday.org/schedule",
-                    "Topic": "python",
-                    "Frequency": "3"
-                    }
-               ]
+          queries_string = {
+          "queries": [
+               {
+               "id": "1",
+               "website": "https://www.nytimes.com/",
+               "topic": "covid",
+               "frequency": "5"
+               },
+               {
+               "id": "2",
+               "website": "https://www.buzzfeed.com/",
+               "topic": "makeup",
+               "frequency": "2"
+               },
+               {
+               "id": "3",
+               "website": "https://labs.codeday.org/schedule",
+               "topic": "python",
+               "frequency": "3"
+               }
+          ]
           }
-          '''
-          data = json.loads(queries_string)
-          print(data['queries'])
-          for query in data['queries']:
-               print(query)
-          return data['queries']
+          return jsonify(queries_string)
 
-     return render_template("index2.html")
+     #return render_template("index2.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000) 
