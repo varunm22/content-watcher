@@ -14,12 +14,14 @@ def read_data(variable_name):
     f.close()
     return value
 
-
 def write_data(value, variable_name):
     with open(variable_name + '.json', 'w') as f:
         json.dump(value, f)
     f.close()
 
+def query_id():
+    counter =             
+            
 @app.route('/add_query', methods=['GET','POST'])
 def add_query():
     json = request.get_json()  
@@ -49,11 +51,9 @@ def delete_query():
 
 #same as add but it decreases counter
     if os.path.exists("counter.json"):
-        counter = read_data()
+        counter = delete_data() #or what the opposite od read_data() is
     else:
-        counter = 1
     print(counter)
-    counter -= 1
     write_data(counter)
 
     schedule.every(frequency).seconds.do(delete_query)
