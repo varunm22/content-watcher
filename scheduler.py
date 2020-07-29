@@ -23,22 +23,25 @@ def write_data(value, variable_name):
 
 @app.route('/add_query', methods=['GET','POST'])
 def add_query():
+    query = {}
     json = request.get_json()
     website = json['website']
     frequency = json['frequency']
     topic = json['topic']
-    query = {}
+  
     # VARUN this is just sample code i wrote for you using the read_data
     # and write_data functions I wrote above to store data. You'll need
     # to use these to create your query dict and access/modify it
     counter = read_data(1, "counter")
+    query[counter] = {str(counter) :
+                         {'topic' : topic,
+                         'website' : website,
+                         'frequency' : frequency},}
     print(counter)
     counter += 1
     write_data(counter, "counter")
 
-    query[counter] = {'topic' : topic,
-                      'website' : website,
-                      'frequency' : frequency}
+
 
     schedule.every(frequency).seconds.do(add_query)
     return "Query added!"
