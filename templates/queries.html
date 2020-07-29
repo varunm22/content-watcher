@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>Queries</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron text-center">
+<h1> Query Manager </h1>
+
+<p> This table records your history of searches! </p>
+</head>
+<body>
+  <table id="example" class="display" style="width:100%">
+    <thead> 
+        <tr>
+            <th>Website</th>
+            <th>Topic</th>
+            <th>Frequency</th>
+        </tr>
+    </thead>
+    
+</table>
+<script>
+function setupData() {
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "ajax": {
+                // "url": "static/objects2.txt", // This works for the static file
+                "url": "/index_get_data", // This now works too thanks to @kthorngren
+                "dataType": "json",
+                "dataSrc": "data",
+                "contentType":"application/json"
+            },
+            "columns": [
+                {"data": "website"},
+                {"data": "topic"},
+                {"data": "frequency"},
+            ]
+        });
+    });
+}
+$( window ).on( "load", setupData );
+$("#myform").validate({
+      rules: {
+      field: {
+      required: true,
+      url: true
+    }
+  }
+});
+
+$.post("ajax/test.html", function(data){
+    $(".result").html(data);
+    });
+
+$.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: success,
+    dataType: dataType
+});
+</script>
+
+<form method="POST">
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+
+</form>
+</body>
+</html>
