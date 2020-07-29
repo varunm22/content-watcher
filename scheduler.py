@@ -27,7 +27,7 @@ def add_query():
     website = json['website']
     frequency = json['frequency']
     topic = json['topic']
-
+    queries = {}
     # VARUN this is just sample code i wrote for you using the read_data 
     # and write_data functions I wrote above to store data. You'll need 
     # to use these to create your query dict and access/modify it
@@ -35,7 +35,11 @@ def add_query():
     print(counter)
     counter += 1
     write_data(counter, "counter")
-
+    
+    queries[counter] = {'topic' : topic, 
+                        'frequency' : frequency, 
+                        'website' : website}
+    
     schedule.every(frequency).seconds.do(add_query)
     return "test text"
 
