@@ -1,14 +1,20 @@
 from flask import Flask, request
 import schedule
 import time
+import os, json
 
 app = Flask(__name__)
 
-def read_data(variable_name):
-    with open(variable_name + '.json', 'r') as f:
-        value = json.load(f)
-    f.close()
-    return value
+def read_data(starting_value, variable_name):
+    variable_path = variable_name + '.json'
+    if os.path.exists(variable_path):
+        with open(variable_path, 'r') as f:
+            print(variable_path)
+            value = json.load(f)
+        f.close()
+        return value
+    else:
+        return starting_value
 
 
 def write_data(value, variable_name):
@@ -23,36 +29,29 @@ def add_query():
     frequency = json['frequency']
     topic = json['topic']
 
-    # this is just sample code i wrote for you using the read_data and
-    # write_data functions I wrote above to store data. You'll need to
-    # use these to create your query dict and access/modify it
-    if os.path.exists("counter.json"):
-        counter = read_data()
-    else:
-        counter = 1
+    # VARUN this is just sample code i wrote for you using the read_data 
+    # and write_data functions I wrote above to store data. You'll need 
+    # to use these to create your query dict and access/modify it
+    counter = read_data(1, "counter")
     print(counter)
     counter += 1
-    write_data(counter)
+    write_data(counter, "counter")
 
     schedule.every(frequency).seconds.do(add_query)
+    return "test text"
 
+# VARUN: remember, all you want as an input for delete is a query id! this 
+# when you're taking things out of json, all you should be taking out is
+# query id. If you don't understand what i mean, ask me!
 @app.route('/delete_query', methods=['GET', 'POST'])
 def delete_query():
-    json = request.get_json()
-    website = json['website']
-    frequency = json['frequency']
-    topic = json['topic']
-
-#same as add but it decreases counter
-    if os.path.exists("counter.json"):
-        counter = read_data()
-    else:
-        counter = 1
-    print(counter)
-    counter -= 1
-    write_data(counter)
-
-    schedule.every(frequency).seconds.do(delete_query)
+#    json = request.get_json()
+#    website = json['website']
+#    frequency = json['frequency']
+#    topic = json['topic']
+#
+#    schedule.every(frequency).seconds.do(delete_query)
+    return "test text"
 
 #@app.route('/show_all')
 #def show_all():
