@@ -4,6 +4,10 @@ import time
 
 app = Flask(__name__)
 
+queries = {'website' : request.get.args('website'),
+            'frequency' : request.get.args('frequency'),
+            'topic' : request.get.args('topic'),}
+
 def read_data(variable_name):
     with open(variable_name + '.json', 'r') as f:
         value = json.load(f)
