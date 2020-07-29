@@ -17,23 +17,28 @@ def notifer():
           results = json['results']
      
           #sample queries
-          queries = '''
+          queries_string = '''
           {
-               "1": {
+               "queries": [
+                    {
+                    "id": "1",
                     "Website": "https://www.nytimes.com/",
                     "Topic": "covid",
                     "Frequency": "5"
-               },
-               "2": {
+                    },
+                    {
+                    "id": "2",
                     "Website": "https://www.buzzfeed.com/",
                     "Topic": "makeup",
-                    "Frequency": "3"
-               },
-               "3": {
+                    "Frequency": "2"
+                    },
+                    {
+                    "id": "3",
                     "Website": "https://labs.codeday.org/schedule",
                     "Topic": "python",
-                    "Frequency": "2"
-               }
+                    "Frequency": "3"
+                    }
+               ]
           }
           '''
           data = json.loads(queries)
