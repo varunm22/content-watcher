@@ -12,8 +12,9 @@ def form_example():
     if request.method == 'POST': #this block is only entered when the form is submitted
         website = request.form.get('website')
         topic = request.form.get('topic')
+        frequency = request.form.get('frequency')
         url = 'http://127.0.0.1:5000/' #sends information to scheduler server
-        myobj = {'website': website, 'topic': topic}
+        myobj = {'website': website, 'topic': topic, 'frequency': frequency}
         x = requests.post(url, json = myobj)
         return "Success! Information entered!" 
     #form shown on webserver/site that prompts user to enter information
