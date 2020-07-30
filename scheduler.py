@@ -54,8 +54,7 @@ def delete_query():
 #    website = json['website']
 #    frequency = json['frequency']
 #    topic = json['topic']
-    query = {}
-
+    del query['query_id']
 
     schedule.every(frequency).seconds.do(delete_query)
     return "Query deleted!"
