@@ -12,21 +12,15 @@ def index():
 
 @app.route('/index_get_data')
 def queries():
-  # Assume data comes from somewhere else
+  List = []
+  #Scheduler outputs data like this:
+  scraper_data = {1:{"website": "https://www.nytimes.com/", "topic": "covid", "frequency": "5"}, 2:{"website": "https://labs.codeday.org/schedule", "topic": "python", "frequency": "2"}}
+  for key, value in scraper_data.items():
+      value["query_id"] = key
+      List.append(value)
+
   data = {
-    "data": [
-      {
-        "id": "1",
-        "website": "https://www.nytimes.com/",
-        "topic": "covid",
-        "frequency": "5",
-      },
-      {
-        "id": "2",
-        "website": "https://labs.codeday.org/schedule",
-        "topic": "python",
-        "frequency": "2",
-      }]
+    "data": List
   }
   return jsonify(data)
 
