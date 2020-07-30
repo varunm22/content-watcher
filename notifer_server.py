@@ -1,5 +1,4 @@
-#flask server set up for notifier; 
-# DOES NOT SEND OR RECEIVE ANY DATA FROM OTHER SERVERS YET
+#flask server set up for notifier/query table 
 
 from flask import Flask, request, render_template, json, jsonify
 
