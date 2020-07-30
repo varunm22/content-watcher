@@ -12,7 +12,7 @@ def form_example():
     if request.method == 'POST': #this block is only entered when the form is submitted
         website = request.form.get('website')
         topic = request.form.get('topic')
-        url = 'http://127.0.0.1:3000/'
+        url = 'http://127.0.0.1:5000/'
         myobj = {'website': website, 'topic': topic}
         x = requests.post(url, json = myobj)
         return "Success! Information entered!" 
