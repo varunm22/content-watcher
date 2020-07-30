@@ -52,8 +52,10 @@ def delete_query():
     return "Query deleted!"
 
 
-#@app.route('/show_all', methods=['GET', 'POST'])
-#def show_all():
+@app.route('/show_all', methods=['GET', 'POST'])
+def show_all():
+    print query
+    schedule.every(frequency).seconds.do(show_all).tag('show')
 
 if __name__ == "__main__":
     app.run(debug=True)
