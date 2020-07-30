@@ -37,7 +37,7 @@ def add_query():
     query_id += 1
     write_data(counter, "counter")
 
-    schedule.every(frequency).seconds.do(add_query)
+    schedule.every(frequency).seconds.do(add_query).tag('create')
     return "Query created!"
 
 # VARUN: remember, all you want as an input for delete is a query id! this
@@ -45,10 +45,12 @@ def add_query():
 # query id. If you don't understand what i mean, ask me!
 @app.route('/delete_query', methods=['GET', 'POST'])
 def delete_query():
+    
     del query['query_id']
-
-    schedule.every(frequency).seconds.do(delete_query)
+    schedule.clear('create')
+    schedule.every(frequency).seconds.do(delete_query).tag('delete')
     return "Query deleted!"
+
 
 #@app.route('/show_all', methods=['GET', 'POST'])
 #def show_all():
