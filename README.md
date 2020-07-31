@@ -5,7 +5,7 @@ a news site for a particular event, or a subreddit for a specific keyword)? What
 will be able to enter a URL, a specific search term/topic, and choose a time frequency that'll update you on results of that particular topic
 you're searching for!
 
-Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together.
+Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together each on their own server!
 
 # Installation Process
 In order to run this content watch, you can download this project yourself and run it on your terminal!
