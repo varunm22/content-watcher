@@ -24,6 +24,13 @@ def scrape(website, topic):
     def scrape_():
         # VARUN - TODO: write code here to actually call the scraper and do what you
         # want to with the results
+        url = 'http://127.0.0.1:5000'
+        scraper_data = [json['website'], json['topic']]
+        x = requests.post(url, json = scraper_data)
+        if 'topic' == scraper_data[1]:
+            return "Yes"
+        else:
+            return "No"        
         pass
     return scrape_
 

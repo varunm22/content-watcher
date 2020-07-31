@@ -17,7 +17,7 @@ def queries():
   
   List = []
   #Scheduler outputs data like this as a dictionary:
-  scraper_data = {1:{"website": "https://www.nytimes.com/", "topic": "covid", "frequency": "5"}, 2:{"website": "https://labs.codeday.org/schedule", "topic": "python", "frequency": "2"}}
+  scraper_data = {1:{"website": "https://www.nytimes.com/", "topic": "covid", "frequency": "5", "results": "10"}}
   for key, value in scraper_data.items():
       value["query_id"] = key
       List.append(value)
