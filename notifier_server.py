@@ -1,6 +1,7 @@
 #flask server set up for notifier/query table 
 
 from flask import Flask, request, render_template, json, jsonify
+import requests
 
 app = Flask(__name__) #create the Flask app
 app.secret_key = "notifier"
