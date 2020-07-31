@@ -32,14 +32,13 @@ scheduler.start()
 
 @app.route('/add_query', methods=['GET','POST'])
 def add_query():
-    query = {}
     json = request.get_json()
     website = json['website']
     frequency = json['frequency']
     topic = json['topic']
 
     job = scheduler.add_job(func=scrape(website, topic), trigger="interval", seconds = frequency)
-
+    query = read_data({}, "query")
     query_id = read_data(1, "query_id")
     query[query_id] = {'topic' : topic, 'website' : website, 'frequency' : frequency, 'job': job}
     query_id += 1
@@ -51,11 +50,11 @@ def add_query():
 def delete_query():
     # VARUN - TODO: you'll need to read the query variable from somewhere!
     # VARUN - TODO: I don't think this is the right way to access the query you want.
-    # get that working then I'll help with deleting the schedule
-    scheduler.remove(query[query_id]['job'])    
-    query = read_data(0, "query") 
+    # get that working then I'll help with deleting the schedule   
+    query = read_data({}, "query") 
     del query[query_id]
     write_data(query, "query")
+    scheduler.remove(query[query_id]['job']) 
     return "Query deleted!"
 
 @app.route('/show_all', methods=['GET', 'POST'])
