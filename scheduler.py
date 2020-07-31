@@ -24,6 +24,9 @@ def scrape(website, topic):
     def scrape_():
         # VARUN - TODO: write code here to actually call the scraper and do what you
         # want to with the results
+        url = website
+        scraper_data = query
+        x = requests.post(url, data = scraper_data)        
         pass
     return scrape_
 
