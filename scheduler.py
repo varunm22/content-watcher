@@ -38,7 +38,6 @@ def add_query():
     frequency = json['frequency']
     topic = json['topic']
 
-    schedule.every(frequency).seconds.do(test).tag('create')
     job = scheduler.add_job(func=scrape(website, topic), trigger="interval", seconds = frequency)
 
     query_id = read_data(1, "query_id")
