@@ -81,5 +81,40 @@ $.ajax({
     dataType: dataType
 });
 </script>
+<center> <b> Delete a Query Here! </b> </center>
+
+<center> <p> Specify the search term and search frequency.</p> </center>
+    <center> <b> Website: </b> </center>
+    <center> <input type="text" name="website" id="website"> </center>
+    <br>
+
+    <center> <b> Number of seconds between searches: </b> </center>
+    <center> <input selected="selected" value="" id="frequency"> </center>
+    </select>
+    <br>
+    
+    <center> <b> Topic: </b> </center>
+    <center> <input type="text" name="topic" id="topic"> </center>
+    <br>
+<br>
+<center> <b> <button onclick="makeAjaxRequest()">Delete</button>
+<script>
+    function makeAjaxRequest() {
+        var website = document.getElementById("website").value;
+        var frequency = document.getElementById("frequency").value;
+        var topic = document.getElementById("topic").value;
+        var data = JSON.stringify({ "website": website, "frequency": frequency, "topic": topic});
+        console.log(data);
+        $.ajax({
+            url: '/delete_query',
+            type: 'POST',
+            data: data,
+            success: function(data){
+                console.log("SUCCESS");
+              //code to open in new window comes here
+            }
+        });
+    }
+</script>
 </body>
 </html>
