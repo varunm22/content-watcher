@@ -11,6 +11,9 @@ def index():
 
 @app.route('/index_get_data')
 def queries():
+  url = 'http://127.0.0.1:5000/show-all' #sends post request to scheduler
+  x = requests.post(url)
+  
   List = []
   #Scheduler outputs data like this as a dictionary:
   scraper_data = {1:{"website": "https://www.nytimes.com/", "topic": "covid", "frequency": "5"}, 2:{"website": "https://labs.codeday.org/schedule", "topic": "python", "frequency": "2"}}
