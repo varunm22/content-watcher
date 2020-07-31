@@ -52,8 +52,8 @@ def delete_query():
     # VARUN - TODO: you'll need to read the query variable from somewhere!
     # VARUN - TODO: I don't think this is the right way to access the query you want.
     # get that working then I'll help with deleting the schedule
-    scheduler.remove(query[query_id]['job'])    
     query = read_data(0, "query") 
+    scheduler.remove(query[query_id]['job'])    
     del query[query_id]
     write_data(query, "query")
     return "Query deleted!"
