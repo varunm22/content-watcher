@@ -1,7 +1,7 @@
 from flask import Flask, request
-import schedule
 import time
 import os, json
+from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
 
@@ -9,7 +9,6 @@ def read_data(starting_value, variable_name):
     variable_path = variable_name + '.json'
     if os.path.exists(variable_path):
         with open(variable_path, 'r') as f:
-            print(variable_path)
             value = json.load(f)
         f.close()
         return value
@@ -21,6 +20,16 @@ def write_data(value, variable_name):
         json.dump(value, f)
     f.close()
 
+def scrape(website, topic):
+    def scrape_():
+        # VARUN - TODO: write code here to actually call the scraper and do what you
+        # want to with the results
+        pass
+    return scrape_
+
+scheduler = BackgroundScheduler()
+scheduler.start()
+
 @app.route('/add_query', methods=['GET','POST'])
 def add_query():
     query = {}
@@ -29,19 +38,22 @@ def add_query():
     frequency = json['frequency']
     topic = json['topic']
 
+    schedule.every(frequency).seconds.do(test).tag('create')
+    job = scheduler.add_job(func=scrape(website, topic), trigger="interval", seconds = frequency)
+
     query_id = read_data(1, "query_id")
-    query[query_id] = {'topic' : topic, 'website' : website, 'frequency' : frequency}
+    query[query_id] = {'topic' : topic, 'website' : website, 'frequency' : frequency, 'job': job}
     query_id += 1
     write_data(query_id, "query_id")
 
-    schedule.every(frequency).seconds.do(add_query).tag('create')
     return "Query created!"
 
 @app.route('/delete_query', methods=['GET', 'POST'])
 def delete_query():
-
+    # VARUN - TODO: you'll need to read the query variable from somewhere!
+    # VARUN - TODO: I don't think this is the right way to access the query you want.
+    # get that working then I'll help with deleting the schedule
     del query['query_id']
-    schedule.clear('create')
     return "Query deleted!"
 
 @app.route('/show_all', methods=['GET', 'POST'])
