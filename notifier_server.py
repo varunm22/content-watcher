@@ -1,6 +1,7 @@
 #flask server set up for notifier/query table 
 
-from flask import Flask, request, render_template, json, jsonify
+import json
+from flask import Flask, request, render_template, jsonify
 import requests
 
 app = Flask(__name__) #create the Flask app
@@ -12,12 +13,11 @@ def index():
 
 @app.route('/index_get_data')
 def queries():
-  url = 'http://127.0.0.1:5000/show-all' #sends post request to scheduler
-  x = requests.post(url)
+  url = 'http://127.0.0.1:5000/show_all' #sends post request to scheduler
+  scraper_data = json.loads(requests.get(url).text)
   
   List = []
   #Scheduler outputs data like this as a dictionary:
-  scraper_data = {1:{"website": "https://www.nytimes.com/", "topic": "covid", "frequency": "5", "results": "10"}}
   for key, value in scraper_data.items():
       value["query_id"] = key
       List.append(value)

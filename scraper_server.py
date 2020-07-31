@@ -32,7 +32,7 @@ def form_example():
         answer = 'Website: ' + website + '.\n' + 'Number of results for ' + topic + ': ' + str(results) + '.'
         print(answer)
 
-        return answer
+        return str(results)
         
     #welcome page that appears
     return "Welcome!"
