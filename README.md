@@ -7,6 +7,8 @@ you're searching for!
 
 Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together each on their own server!
 
+Learn more about our project here: https://docs.google.com/presentation/d/1P7exoGpdQaYBJFqUqMB0P6NRfue1vn6smhXThRHNL2s/edit?usp=sharing
+
 # Installation Process
 In order to run this content watch, you can download this project yourself and run it on your terminal!
 Please have Python 3 installed and use pip to install packages for Flask, BeautifulSoup, Requests, Flask-Jsonpify, and APScheduler also installed in order for the program to properly run.
