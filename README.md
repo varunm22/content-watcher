@@ -7,7 +7,9 @@ you're searching for!
 
 Our content-water runs on 4 main components (scraper, scheduler, query entry & notifier) that all run together each on their own server!
 
-Learn more about our project here: https://docs.google.com/presentation/d/1P7exoGpdQaYBJFqUqMB0P6NRfue1vn6smhXThRHNL2s/edit?usp=sharing
+Learn more about our project overview here: https://docs.google.com/presentation/d/1P7exoGpdQaYBJFqUqMB0P6NRfue1vn6smhXThRHNL2s/edit?usp=sharing
+
+Tech Talk Video: https://www.youtube.com/watch?v=eh_DTfYCIpc&list=PL2WE2JU8kAuIZ-YcfGgvu1yD3eBVq51Ri&index=12&t=0s
 
 # Installation Process
 In order to run this content watch, you can download this project yourself and run it on your terminal!
